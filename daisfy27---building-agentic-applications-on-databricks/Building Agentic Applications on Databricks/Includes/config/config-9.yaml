@@ -1,0 +1,27 @@
+# Notebook 09-v2: Bonus Demo - Building Single Agents with LangChain (MCP)
+# Mirrors notebook 05's flow: inline tool → UC registration → MCP → agent.
+# Registers classify_price_tier via Python UC function (done in-notebook).
+
+# Set to true for development (enables manifest validation + cleanup)
+dev_mode: false
+
+# Set to true to drop the catalog after setup (requires dev_mode: true)
+resource_cleanup: false
+
+# Set to true if this course uses the Medallion Lab pattern
+medallion_lab: false
+course_name: "Building Single Agent Applications on Databricks"
+serverless_compute_version: "5"
+
+catalog:
+  prefix: "labuser"
+  schema_name: "lc_extra"
+
+data:
+  databricks_share_name: "databricks_airbnb_sample_data"
+  table_name: "sf_airbnb_listings"
+  vocareum_share_name: "airbnb"
+
+mlflow:
+  tracking_uri: "databricks"
+  experiment_name: "langchain-agent-mcp-training"

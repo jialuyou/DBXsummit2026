@@ -1,0 +1,34 @@
+# Lab 08: Supervisor Agent with KA + UC tools via Agent Bricks
+# The KA and its knowledge source (PDF) live in the shared dbacademy catalog,
+# provisioned by the workspace admin via Workspace-Setup.
+# Per-user setup creates the user catalog, loads data, and registers UC tools.
+
+# Set to true for development (enables manifest validation + cleanup)
+dev_mode: false
+
+# Set to true to drop the catalog after setup (requires dev_mode: true)
+resource_cleanup: false
+
+# Set to true if this course uses the Medallion Lab pattern
+medallion_lab: false
+
+course_name: "Building Single Agent Applications on Databricks"
+serverless_compute_version: "5"
+
+catalog:
+  prefix: "labuser"
+  schema_name: "airbnb_agent"
+
+ka_assistant_name: "Airbnb_Knowledge_Assistant"
+
+data:
+  databricks_share_name: "databricks_airbnb_sample_data"
+  table_name: "sf_airbnb_listings"
+  vocareum_share_name: "airbnb"
+
+tools:
+  - avg_neigh_price
+  - cnt_by_room_type
+
+python_tools:
+  - airbnb_posting_info
