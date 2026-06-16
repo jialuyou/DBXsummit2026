@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "config": {
+    "bundle": {
+      "name": "my-first-app",
+      "target": "default",
+      "git": {
+        "bundle_root_path": "."
+      }
+    },
+    "workspace": {
+      "file_path": "/Workspace/Users/labuser15566599_1781645082@vocareum.com/.bundle/my-first-app/default/files"
+    },
+    "resources": {},
+    "presets": {
+      "source_linked_deployment": false
+    }
+  },
+  "extra": {}
+}

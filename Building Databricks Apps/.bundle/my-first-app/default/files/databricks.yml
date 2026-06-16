@@ -1,0 +1,18 @@
+bundle:
+  name: my-first-app
+
+resources:
+  apps:
+    app:
+      name: "my-first-app"
+      description: "A Databricks App powered by AppKit"
+      source_code_path: ./
+      # Uncomment to enable on behalf of user API scopes. Available scopes: sql, dashboards.genie, files.files, serving.serving-endpoints
+      # user_api_scopes:
+      #   - sql
+
+targets:
+  default:
+    default: true
+    workspace:
+      host: https://dbc-9419a989-64ff.cloud.databricks.com
