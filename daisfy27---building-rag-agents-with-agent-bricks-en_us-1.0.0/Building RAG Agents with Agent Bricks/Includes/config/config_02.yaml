@@ -1,0 +1,42 @@
+# Demo Setup Configuration
+
+# Set to true if developing a Medallion Lab
+medallion_lab: false
+
+# Set to true for development
+dev_mode: false
+
+# Set to true to drop the catalog after setup (dev_mode must be enabled)
+resource_cleanup: false
+
+# Set Course Name — must match the lab 'name' field in manifest.yaml
+course_name: ""
+
+# Compute check for correct serverless version
+serverless_compute_version: "5"
+
+# Catalog and Schema
+catalog:
+  name: null          # null = auto-detect (Vocareum: username, other: prefix_username)
+  prefix: "labuser"   # Used when auto-creating a catalog outside Vocareum
+  schema_name: "labuser_ka"
+  volume_name: "user_vol"
+
+ka_assistant_name: "Airbnb_Knowledge_Assistant"
+
+# Vector Search — parse + chunk the house rules PDF and create an index
+# on the shared vs_all_demo endpoint so it's ONLINE by the time Demo 05 runs.
+vector_search:
+  endpoint_name: "vs_all_demo"
+  source_pdf: "/Volumes/dbacademy/ka_all/vol_all/additional_listing_info/airbnb_house_rules.pdf"
+  index:
+    chunks_table: "house_rules_chunks"
+    index_name: "house_rules_index"
+    primary_key: "chunk_id"
+    embedding_source_column: "chunk_text"
+    embedding_model: "databricks-gte-large-en"
+    pipeline_type: "TRIGGERED"
+    columns_to_sync:
+      - chunk_id
+      - chunk_text
+      - source_path
